@@ -9,7 +9,7 @@ class App < Sinatra::Base
   end
 
   get "/numbers" do
-    res = @conn.get(path: "/numbers")
+    res = @conn.get(path: "/")
     [res.status, [res.body]]
   end
 end

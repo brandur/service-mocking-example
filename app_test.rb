@@ -30,7 +30,7 @@ class AppTest < MiniTest::Unit::TestCase
 
   def test_numbers_error
     stub_numbers_service do
-      get "/numbers" do
+      get "/" do
         422
       end
     end
