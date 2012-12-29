@@ -6,7 +6,7 @@ require "rack/test"
 require "webmock/minitest"
 
 require_relative "app"
-require_relative "numbers_service"
+require_relative "numbers_service_stub"
 
 set :run, false
 
@@ -42,6 +42,6 @@ class AppTest < MiniTest::Unit::TestCase
 
   def stub_numbers_service(&block)
     stub = block ? Sinatra.new(NumbersServiceStub, &block) : NumbersServiceStub
-    stub_request(:any, /#{ENV["NUMBERS_SERVICE_URL"]}\/.*/).to_rack(stub)
+    stub_request(:any, /^#{ENV["NUMBERS_SERVICE_URL"]}\/.*$/).to_rack(stub)
   end
 end
