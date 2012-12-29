@@ -20,21 +20,15 @@ class AppTest < MiniTest::Unit::TestCase
   end
 
   def setup
-  # stub_request(:any, /#{ENV["SERVICE_URL"]}\/.*/).to_rack(Service)
     stub_numbers_service
   end
 
-  def test_service
+  def test_numbers
     get "/numbers"
     assert_equal 200, last_response.status
   end
 
-  def test_service_error
-  # stub_request(:any, /#{ENV["SERVICE_URL"]}\/.*/).to_rack(Sinatra.new(Service) {
-  #   get "/numbers" do
-  #     422
-  #   end
-  # })
+  def test_numbers_error
     stub_numbers_service do
       get "/numbers" do
         422
