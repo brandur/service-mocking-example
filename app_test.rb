@@ -41,7 +41,7 @@ class AppTest < MiniTest::Unit::TestCase
   private
 
   def stub_numbers_service(&block)
-    stub = block ? Sinatra.new(NumbersService, &block) : NumbersService
+    stub = block ? Sinatra.new(NumbersServiceStub, &block) : NumbersServiceStub
     stub_request(:any, /#{ENV["NUMBERS_SERVICE_URL"]}\/.*/).to_rack(stub)
   end
 end

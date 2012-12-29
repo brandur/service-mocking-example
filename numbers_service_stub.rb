@@ -1,4 +1,4 @@
-class NumbersService < Sinatra::Base
+class NumbersServiceStub < Sinatra::Base
   configure do
     set :raise_errors, true
     set :show_exceptions, false
