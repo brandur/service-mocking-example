@@ -8,8 +8,6 @@ require "webmock/minitest"
 require_relative "app"
 require_relative "numbers_service_stub"
 
-set :run, false
-
 ENV["NUMBERS_SERVICE_URL"] = "https://my-service.example.com"
 
 class AppTest < MiniTest::Unit::TestCase
